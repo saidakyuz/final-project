@@ -31,7 +31,7 @@ const Navigation = () => {
           ) : (
             <Fragment>
               <Nav.Link>
-                <NavLink to="/battleground">Play</NavLink>
+                <NavLink to="/entrygate">EntryGate</NavLink>
               </Nav.Link>
               <Nav.Link>
                 <div onClick={logout}>Logout</div>
