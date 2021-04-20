@@ -10,8 +10,8 @@ const Navigation = () => {
       <Link to="/">
         <Navbar.Brand>
           <img
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/1280px-International_Pok%C3%A9mon_logo.svg.png"
-            alt="Pokemon"
+            src="https://cdn1.iconfinder.com/data/icons/maps-and-navigation-11/24/jewel-style-map-gem-navigation-three-diamond-maps-gps-pin-jeweler-512.png"
+            alt="Logo"
             width="150px"
           />
         </Navbar.Brand>
