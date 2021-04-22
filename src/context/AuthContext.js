@@ -12,8 +12,8 @@ const AuthState = ({ children }) => {
     const verifySession = async () => {
       const options = {
         headers: {
-          token,
-        },
+          token
+        }
       };
       const res = await fetch(
         `${process.env.REACT_APP_API}/auth/verify-session`, // .env haben wir nicht und auch kein api
