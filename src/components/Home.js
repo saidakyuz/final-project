@@ -1,5 +1,16 @@
-import React from "react";
+import YoutubeBackground from "react-youtube-background";
 
-export default function Home() {
-  return <div>Homedsads</div>;
-}
+const Home = () => {
+  return (
+      <YoutubeBackground
+  videoId="tgc6YH6X9b0"            
+  overlay="rgba(0,0,0,.4)"             
+  className="backgroundvideo"   
+>
+  <p>Hallo</p>
+</YoutubeBackground>
+)
+};
+
+
+export default Home;
