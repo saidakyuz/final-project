@@ -12,7 +12,7 @@ const Navigation = () => {
           <img
             src="https://cdn1.iconfinder.com/data/icons/maps-and-navigation-11/24/jewel-style-map-gem-navigation-three-diamond-maps-gps-pin-jeweler-512.png"
             alt="Logo"
-            width="150px"
+            width="50px"
           />
         </Navbar.Brand>
       </Link>
@@ -31,7 +31,7 @@ const Navigation = () => {
           ) : (
             <Fragment>
               <Nav.Link>
-                <NavLink to="/entrygate">EntryGate</NavLink>
+                <NavLink to="/entrancegate">EntranceGate</NavLink>
               </Nav.Link>
               <Nav.Link>
                 <div onClick={logout}>Logout</div>
