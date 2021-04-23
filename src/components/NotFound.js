@@ -11,8 +11,4 @@ const NotFound = () => {
   );
 };
 
-<<<<<<< HEAD
 export default NotFound;
-=======
-export default NotFound;
->>>>>>> master

@@ -37,11 +37,7 @@ const SignUp = () => {
       localStorage.setItem('token', token);
     }
   };
-<<<<<<< HEAD
   if (isAuthenticated) return <Redirect to='/entrancegate' />;
-=======
-  if (isAuthenticated) return <Redirect to='/entrygate' />;
->>>>>>> master
   return (
     <div className='container'>
       {error && (
