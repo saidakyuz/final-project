@@ -35,75 +35,64 @@ const Footer = () => {
       <MDBContainer className="mt-5 mb-4 text-center text-md-left">
         <MDBRow className="mt-3">
           <MDBCol md="3" lg="4" xl="3" className="mb-4">
-            <h6 className="text-uppercase font-weight-bold">
-              <strong>Company name</strong>
+            <h6 className="text font-weight-bold">
+              <strong>T[R]eMo</strong>
             </h6>
             <hr className="light-blue accent-2 mb-4 mt-0 d-inline-block mx-auto" style={{ width: "60px" }} />
             <p>
-              Here you can use rows and columns here to organize your footer
-              content. Lorem ipsum dolor sit amet, consectetur adipisicing
-              elit.
+            The app that lets you find special moments. Save in your personal treasure chest. And share them. And connect with other treasure hunters around the world.
             </p>
           </MDBCol>
           <MDBCol md="2" lg="2" xl="2" className="mb-4">
             <h6 className="text-uppercase font-weight-bold">
               <strong>Products</strong>
             </h6>
-            <hr className="light-blue accent-2 mb-4 mt-0 d-inline-block mx-auto" style={{ width: "60px" }} />
+            <hr className="light-blue accent-2 mb-4 mt-0 d-inline-block mx-auto" style={{ width: "80px" }} />
             <p>
-              <a href="#!">MDBootstrap</a>
+              <a href="#!">Blog</a>
             </p>
             <p>
-              <a href="#!">MDWordPress</a>
+              <a href="#!">Shop</a>
             </p>
             <p>
-              <a href="#!">BrandFlow</a>
-            </p>
-            <p>
-              <a href="#!">Bootstrap Angular</a>
+              <a href="#!">Gallery</a>
             </p>
           </MDBCol>
           <MDBCol md="3" lg="2" xl="2" className="mb-4">
             <h6 className="text-uppercase font-weight-bold">
               <strong>Useful links</strong>
             </h6>
-            <hr className="light-blue accent-2 mb-4 mt-0 d-inline-block mx-auto" style={{ width: "60px" }} />
+            <hr className="light-blue accent-2 mb-4 mt-0 d-inline-block mx-auto" style={{ width: "105px" }} />
             <p>
-              <a href="#!">Your Account</a>
-            </p>
-            <p>
-              <a href="#!">Become an Affiliate</a>
-            </p>
-            <p>
-              <a href="#!">Shipping Rates</a>
+              <a href="#!">Q & A</a>
             </p>
             <p>
               <a href="#!">Help</a>
+            </p>
+            <p>
+              <a href="#!">Become a Supporter</a>
             </p>
           </MDBCol>
           <MDBCol md="4" lg="3" xl="3" className="mb-4">
             <h6 className="text-uppercase font-weight-bold">
               <strong>Contact</strong>
             </h6>
-            <hr className="light-blue accent-2 mb-4 mt-0 d-inline-block mx-auto" style={{ width: "60px" }} />
+            <hr className="light-blue accent-2 mb-4 mt-0 d-inline-block mx-auto" style={{ width: "70px" }} />
             <p>
               <i className="fa fa-home mr-3" /> New York, NY 10012, US
             </p>
             <p>
-              <i className="fa fa-envelope mr-3" /> info@example.com
+              <i className="fa fa-envelope mr-3" /> info@tremo.com
             </p>
             <p>
               <i className="fa fa-phone mr-3" /> + 01 234 567 88
-            </p>
-            <p>
-              <i className="fa fa-print mr-3" /> + 01 234 567 89
             </p>
           </MDBCol>
         </MDBRow>
       </MDBContainer>
       <div className="footer-copyright text-center py-3">
         <MDBContainer fluid>
-          &copy; {new Date().getFullYear()} Copyright: <a href="https://www.MDBootstrap.com"> MDBootstrap.com </a>
+          &copy; {new Date().getFullYear()} Copyright: <a href="https://www.tremo.com"> T[R]eMo.com </a>
         </MDBContainer>
       </div>
     </MDBFooter>
