@@ -6,7 +6,6 @@ import { Navbar, Nav } from "react-bootstrap";
 const Navigation = () => {
   const { isAuthenticated, logout } = useContext(AuthContext);
   return (
-    //<Navbar bg="light" expand="lg">
     <Navbar className="navbar navbar-expand-lg navbar-dark bg-dark">
       <Link to="/">
         <Navbar.Brand>
@@ -27,10 +26,10 @@ const Navigation = () => {
           {!isAuthenticated ? (
             <Fragment>
               <Nav.Link>
-                <NavLink to="/sign-up">Register</NavLink>
+                <NavLink to="/sign-up"><h6 className="white-text">Register</h6></NavLink>
               </Nav.Link>
               <Nav.Link>
-                <NavLink to="/sign-in">Login</NavLink>
+                <NavLink to="/sign-in"><h6 className="white-text">Login</h6></NavLink>
               </Nav.Link>
             </Fragment>
           ) : (
