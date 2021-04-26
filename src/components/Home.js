@@ -5,8 +5,8 @@ const Home = () => {
       <YoutubeBackground
   videoId="tgc6YH6X9b0"            
   overlay="rgba(0,0,0,.4)"             
-  className="backgroundvideo"   
->
+  className="backgroundvideo" 
+  >
 </YoutubeBackground>
 )
 };
