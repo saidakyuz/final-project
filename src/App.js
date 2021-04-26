@@ -9,6 +9,7 @@ import EntranceGate from './components/EntranceGate';
 import ProtectedRoute from './components/ProtectedRoute';
 import "./App.css"
 import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootswatch/dist/cyborg/bootstrap.min.css";
 
 const App = () => {
   return (

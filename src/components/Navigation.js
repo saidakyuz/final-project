@@ -6,14 +6,15 @@ import { Navbar, Nav } from "react-bootstrap";
 const Navigation = () => {
   const { isAuthenticated, logout } = useContext(AuthContext);
   return (
-    <Navbar bg="light" expand="lg">
+    //<Navbar bg="light" expand="lg">
+    <Navbar className="navbar navbar-expand-lg navbar-dark bg-dark">
       <Link to="/">
         <Navbar.Brand>
           <img
             src="https://cdn1.iconfinder.com/data/icons/maps-and-navigation-11/24/jewel-style-map-gem-navigation-three-diamond-maps-gps-pin-jeweler-512.png"
             alt="Logo"
             width="50px"
-          />
+                      />
         </Navbar.Brand>
       </Link>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
