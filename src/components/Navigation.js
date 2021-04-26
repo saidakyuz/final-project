@@ -14,9 +14,13 @@ const Navigation = () => {
             src="https://cdn1.iconfinder.com/data/icons/maps-and-navigation-11/24/jewel-style-map-gem-navigation-three-diamond-maps-gps-pin-jeweler-512.png"
             alt="Logo"
             width="50px"
-                      />
+          />
         </Navbar.Brand>
       </Link>
+      <Link  to="/">
+      <h4 className="text font-weight-bold">
+          <strong>T[R]eMo</strong>
+      </h4></Link>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="ml-auto">
