@@ -8,7 +8,7 @@ const Footer = () => {
         <MDBContainer fluid className="text-center text-md-left">
           <MDBRow className="py-4 d-flex align-items-center">
             <MDBCol md="6" lg="5" className="text-center text-md-left mb-4 mb-md-0">
-              <h6 className="mb-0 white-text">
+              <h6 className="mb-0 light-blue-text">
                 Get connected with us on social networks!
               </h6>
             </MDBCol>

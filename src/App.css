@@ -6,3 +6,11 @@
     height: 100vh;
 }
 
+.navbar.bg-dark {
+    border:none !important;
+}
+
+/* .VideoContainer {
+    margin-top: 25px;
+    background-color: transparent;
+} */
