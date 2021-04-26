@@ -2,6 +2,8 @@ import { Fragment, useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import { Navbar, Nav } from "react-bootstrap";
+//import { FaThumbsDown, FaThumbsUp } from 'react-icons/fa';
+//import { FaBeer } from 'react-icons/fa';
 
 const Navigation = () => {
   const { isAuthenticated, logout } = useContext(AuthContext);
@@ -11,7 +13,7 @@ const Navigation = () => {
         <Navbar.Brand>
           <img
             src="https://cdn1.iconfinder.com/data/icons/maps-and-navigation-11/24/jewel-style-map-gem-navigation-three-diamond-maps-gps-pin-jeweler-512.png"
-            alt="Logo"
+            alt="Icon"
             width="50px"
           />
         </Navbar.Brand>
@@ -35,7 +37,7 @@ const Navigation = () => {
           ) : (
             <Fragment>
               <Nav.Link>
-                <NavLink to="/entrancegate">EntranceGate</NavLink>
+                <NavLink to="/entrancegate"><h6 className="light-blue-text">EntranceGate</h6></NavLink>
               </Nav.Link>
               <Nav.Link>
                 <div onClick={logout}>Logout</div>
