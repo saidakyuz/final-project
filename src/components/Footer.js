@@ -40,7 +40,7 @@ const Footer = () => {
             </h6>
             <hr className="light-blue accent-2 mb-4 mt-0 d-inline-block mx-auto" style={{ width: "60px" }} />
             <p>
-            The app that lets you find special moments. Save in your personal treasure chest. And share them. And connect with other treasure hunters around the world.
+            The app that lets you find special moments. Save them in your personal treasure chest, share them and connect with other treasure hunters around the world.
             </p>
           </MDBCol>
           <MDBCol md="2" lg="2" xl="2" className="mb-4">
