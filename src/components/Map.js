@@ -13,16 +13,14 @@ const Map = () => {
     zoom: 13,
   });
   return (
-    <Container style={{ width: "100%" }}>
-      <Row>
-        {" "}
-        <ReactMapGL
-          {...viewport}
-          mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
-          onViewportChange={(nextViewport) => setViewport(nextViewport)}
-        />
-      </Row>
-    </Container>
+    <Row>
+      {" "}
+      <ReactMapGL
+        {...viewport}
+        mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
+        onViewportChange={() => (viewport.width = "100wv")}
+      />
+    </Row>
   );
 };
 
