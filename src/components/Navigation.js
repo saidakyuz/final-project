@@ -5,6 +5,7 @@ import { Navbar, Nav } from "react-bootstrap";
 //import { FaThumbsDown, FaThumbsUp } from 'react-icons/fa';
 //import { FaBeer } from 'react-icons/fa';
 
+
 const Navigation = () => {
   const { isAuthenticated, logout } = useContext(AuthContext);
   return (
@@ -12,8 +13,9 @@ const Navigation = () => {
       <Link to="/">
         <Navbar.Brand>
           <img
-            src="https://cdn1.iconfinder.com/data/icons/maps-and-navigation-11/24/jewel-style-map-gem-navigation-three-diamond-maps-gps-pin-jeweler-512.png"
-            alt="Icon"
+            src="./assets/white-jewel-pin.png"
+            //src="https://cdn1.iconfinder.com/data/icons/maps-and-navigation-11/24/jewel-style-map-gem-navigation-three-diamond-maps-gps-pin-jeweler-512.png"
+            alt="LogoIcon"
             width="50px"
           />
         </Navbar.Brand>
