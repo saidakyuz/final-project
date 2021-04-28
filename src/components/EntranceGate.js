@@ -1,8 +1,14 @@
 import React from "react";
 import Map from "./Map";
+//import SideNavbar from "./SideNavbar";
 
 const EntranceGate = () => {
-  return <Map />;
+  return (
+  <div>
+  <Map />
+  {/* <SideNavbar /> */}
+  </div>
+  );
 };
 
 export default EntranceGate;

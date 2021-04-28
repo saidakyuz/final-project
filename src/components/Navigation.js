@@ -2,6 +2,7 @@ import { Fragment, useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import { Navbar, Nav } from "react-bootstrap";
+import Logo from "../assets/white-jewel-pin.png";
 //import { FaThumbsDown, FaThumbsUp } from 'react-icons/fa';
 //import { FaBeer } from 'react-icons/fa';
 
@@ -13,7 +14,7 @@ const Navigation = () => {
       <Link to="/">
         <Navbar.Brand>
           <img
-            src="./assets/white-jewel-pin.png"
+            src={Logo}
             //src="https://cdn1.iconfinder.com/data/icons/maps-and-navigation-11/24/jewel-style-map-gem-navigation-three-diamond-maps-gps-pin-jeweler-512.png"
             alt="LogoIcon"
             width="50px"
