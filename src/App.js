@@ -1,11 +1,10 @@
 import { Switch, Route } from "react-router-dom";
 import Navigation from "./components/Navigation";
-import Home from "./components/Home-Landingpage/Home";
+import Home from "./components/Home";
 import SignUp from "./components/SignUp";
 import SignIn from "./components/SignIn";
 import NotFound from "./components/NotFound";
-import LandingpageVideo from "./components/Home-Landingpage/LandingpageVideo";
-import Footer from "./components/Home-Landingpage/Footer";
+//import Footer from "./components/Home-Landingpage/Footer";
 import EntranceGate from './components/EntranceGate';
 import ProtectedRoute from './components/ProtectedRoute';
 import "./App.css"
@@ -23,8 +22,7 @@ const App = () => {
         <ProtectedRoute exact path='/entrancegate' component={EntranceGate} />
         <Route path="*" component={NotFound} />
       </Switch>
-      <LandingpageVideo />
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };
