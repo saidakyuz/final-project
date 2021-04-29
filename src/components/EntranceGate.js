@@ -1,18 +1,20 @@
 import React from "react";
-import Map from "./Map";
 import Sidebar from "./Sidebar";
+import Geolocation from "./Geolocation"
+import CreateIcon from "../assets/create-black-icon.png"
 
 const EntranceGate = () => {
   return (
   <div style={{display: 'flex', flexDirection: 'row-reverse'}}>
   <Sidebar width={300} height={'100vh'}>
-          <h1>Nav Item</h1>
-          <h1>Nav Item</h1>
-          <h1>Nav Item</h1>
-          <h1>Nav Item</h1>
-          <h1>Nav Item</h1>
+    <div>
+      <a href="/"><img src={CreateIcon} alt="Create Tremo" width="150px" /></a>
+      <a href="/"><img src={CreateIcon} alt="Create Tremo" width="150px" /></a>
+      <a href="/"><img src={CreateIcon} alt="Create Tremo" width="150px" /></a>
+      <a href="/"><img src={CreateIcon} alt="Create Tremo" width="150px" /></a>
+    </div>
   </Sidebar>
-  <Map/>
+  <Geolocation />
   </div>
   );
 };
