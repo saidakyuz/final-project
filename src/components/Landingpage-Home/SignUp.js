@@ -1,9 +1,9 @@
 import { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { Redirect } from 'react-router-dom';
-import { AuthContext } from '../context/AuthContext';
+import { AuthContext } from '../../context/AuthContext';
 
-const SignIn = () => {
+const SignUp = () => {
   const { isAuthenticated, setIsAuthenticated, error, setError } = useContext(AuthContext);
 
   const {
@@ -12,6 +12,7 @@ const SignIn = () => {
     formState: { errors }
   } = useForm({
     defaultValues: {
+      name: '',
       email: '',
       password: ''
     }
@@ -25,7 +26,7 @@ const SignIn = () => {
       },
       body: JSON.stringify(data)
     };
-    const res = await fetch(`${process.env.REACT_APP_API}/auth/signin`, options);
+    const res = await fetch(`${process.env.REACT_APP_API}/auth/signup`, options);
     const { token, error } = await res.json();
     if (error) {
       setError(error);
@@ -38,7 +39,6 @@ const SignIn = () => {
   };
   if (isAuthenticated) return <Redirect to='/entrancegate' />;
   return (
-    
     <div className='container'>
       {error && (
         <div class='alert alert-danger' role='alert'>
@@ -46,6 +46,21 @@ const SignIn = () => {
         </div>
       )}
       <form onSubmit={handleSubmit(onSubmit)}>
+        <div className='form-group'>
+          <label htmlFor='name'>Name</label>
+          <input
+            type='text'
+            name='name'
+            className='form-control'
+            placeholder='Enter name'
+            {...register('name', { required: true })}
+          />
+          {errors.name && (
+            <div class='alert alert-primary' role='alert'>
+              Name is required
+            </div>
+          )}
+        </div>
         <div className='form-group'>
           <label htmlFor='email'>Email</label>
           <input
@@ -84,4 +99,4 @@ const SignIn = () => {
   );
 };
 
-export default SignIn;
+export default SignUp;

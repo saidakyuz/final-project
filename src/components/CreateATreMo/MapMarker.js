@@ -14,6 +14,6 @@ const MapMarker = () => {
       </Marker>
     </ReactMapGL>
   );
-};
+}
 
 export default MapMarker;
