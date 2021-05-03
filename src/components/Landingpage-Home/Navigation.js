@@ -1,8 +1,8 @@
 import { Fragment, useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { AuthContext } from "../context/AuthContext";
+import { AuthContext } from "../../context/AuthContext";
 import { Navbar, Nav } from "react-bootstrap";
-import Logo from "../assets/white-jewel-pin.png";
+import Logo from "../../assets/white-jewel-pin.png";
 //import { FaThumbsDown, FaThumbsUp } from 'react-icons/fa';
 //import { FaBeer } from 'react-icons/fa';
 

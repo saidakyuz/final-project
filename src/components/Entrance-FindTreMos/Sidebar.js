@@ -1,5 +1,5 @@
 import {useState, useEffect, Fragment} from "react";
-import "../App.css";
+import "../../App.css";
 
 const Sidebar = ({ width, height, children }) => {
   const [xPosition, setX] = useState(width);
