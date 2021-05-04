@@ -1,13 +1,13 @@
 .video-container {
-    height: 100vh;
+  height: 100vh;
 }
 
 .backgroundvideo {
-    height: 100vh;
+  height: 100vh;
 }
 
 .navbar.bg-dark {
-    border:none !important;
+  border: none !important;
 }
 
 /* .VideoContainer {
@@ -15,31 +15,37 @@
     background-color: transparent;
 } */
 .side-bar {
-    height: 100% !important;
-    z-index: 10000;
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    border-right: 1px solid;
-    border-radius: 0;
-    border-color: rgba(64, 194, 133, 0.693);
-    background-color: rgb(255, 255, 255);
-    transition: 0.8s ease;
+  height: 100% !important;
+  z-index: 10000;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid;
+  border-radius: 0;
+  border-color: rgba(64, 194, 133, 0.693);
+  background-color: rgb(255, 255, 255);
+  transition: 2.8s ease;
+}
+
+.side-bar .content .container {
+  display: flex;
+  flex-direction: column;
 }
 
 .toggle-menu {
-    height: 50px;
-    border-top-left-radius: 10rem;
-    border-bottom-left-radius: 9rem;
-    width: 10px;
-    position: absolute;
-    outline: none;
-    z-index: 1;
-    background-color: rgba(64, 194, 133, 0.693);
-    border-color: rgba(64, 194, 133, 0.693);
-    border-right: 0;
+  height: 50px;
+  border-top-left-radius: 10rem;
+  border-bottom-left-radius: 9rem;
+  width: 10px;
+  position: absolute;
+  outline: none;
+  z-index: 1;
+  background-color: rgba(64, 194, 133, 0.693);
+  border-color: rgba(64, 194, 133, 0.693);
+  border-right: 0;
+  /* z-index: 999999; */
 }
 
-.NavItem{
-    color: black;
+.NavItem {
+  color: black;
 }
