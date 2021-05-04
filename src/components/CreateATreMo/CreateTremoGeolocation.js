@@ -1,6 +1,5 @@
 import React, { useState, useRef, useCallback } from 'react';
 import ReactMapGL, { GeolocateControl } from "react-map-gl";
-import Geocoder from "react-map-gl-geocoder";
 import "mapbox-gl/dist/mapbox-gl.css";
 import "react-map-gl-geocoder/dist/mapbox-gl-geocoder.css";
 
@@ -9,14 +8,16 @@ const CreateTremoGeolocation = () => {
    left: 10,
    top: 10
   };
+
   const [viewport, setViewport] = useState({
     latitude: 52.52,
     longitude: 13.405,
     zoom: 13,
    });
   
-  const [userLocation, setUserLocation] = useState()
-  const [clickedLocation, setClickedLocation] = useState()
+  const [userCoordinatesAtTremo, setUserCoordinatesAtTremo] = useState()
+  /* const [clickedLocation, setClickedLocation] = useState() */
+  const [userRadiusEdgeCoordinates, setUserRadiusEdgeCoordinates] = useState()
 
    const mapRef = useRef();
 
@@ -25,11 +26,15 @@ const CreateTremoGeolocation = () => {
     []
   );
 
-  const getCoordinates = (e) =>{
-    setClickedLocation({lat:e.lngLat[1], lng: e.lngLat[0]})
+  const getUserCoordinatesAtTremo = (e) =>{
+    setUserCoordinatesAtTremo({lat: e.coords.latitude, lng:e.coords.longitude})
   }
-  const getUserLocation = (e) =>{
-    setUserLocation({lat: e.coords.latitude, lng:e.coords.longitude})
+
+  /* const getCoordinates = (e) =>{
+    setClickedLocation({lat:e.lngLat[1], lng: e.lngLat[0]})
+  } */
+  const getSecondUserCoordinatesAtRadiusEdge = (e) => {
+    setUserRadiusEdgeCoordinates({lat:e.lngLat[1], lng:e.lngLat[0]})
   }
 
    const handleGeocoderViewportChange = useCallback(
@@ -48,16 +53,18 @@ const CreateTremoGeolocation = () => {
 
   return (
     <div style={{ height: "100vh", width: "100vw" }}>
-    <ReactMapGL 
+     <ReactMapGL 
     ref={mapRef}
     {...viewport} 
     width="100vw" 
     height="90vh" 
     onViewportChange={setViewport}
-    onClick={getCoordinates}
+    //onClick={getCoordinates}
+    onClick={getSecondUserCoordinatesAtRadiusEdge}
     mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}>
       <GeolocateControl
-        onGeolocate={getUserLocation}
+        // onGeolocate={getUserLocation}
+        onGeolocate={getUserCoordinatesAtTremo}
         style={geolocateControlStyle}
         positionOptions={{enableHighAccuracy: true}}
         trackUserLocation={true}
