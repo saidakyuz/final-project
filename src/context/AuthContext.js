@@ -1,43 +1,31 @@
 import { createContext, useState, useEffect } from "react";
+import { auth, googleProvider } from '../firebase/firebase';
 
 const AuthContext = createContext();
 
 const AuthState = ({ children }) => {
+  const [user, setUser] = useState();
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [error, setError] = useState("");
 
   useEffect(() => {
-    const token = localStorage.getItem("token"); // Wir haben noch kein TOKEN
-
-    const verifySession = async () => {
-      const options = {
-        headers: {
-          token
-        }
-      };
-      const res = await fetch(
-        `${process.env.REACT_APP_API}/auth/verify-session`, // .env haben wir nicht und auch kein api
-        options
-      );
-      const { error } = await res.json();
-      if (error) {
+    const unsubscribe = auth.onAuthStateChanged(user => {
+      if (user) {
+        setUser(user);
+        setIsAuthenticated(true);
+      } else {
+        setUser();
         setIsAuthenticated(false);
-        return localStorage.removeItem("token");
       }
-      setIsAuthenticated(true);
-    };
+    });
+    return () => unsubscribe();
+  },[])
 
-    verifySession();
-  }, []);
-
-  const logout = () => {
-    setIsAuthenticated(false);
-    localStorage.removeItem("token");
-  };
+  const signIn = () => auth.signInWithPopup(googleProvider);
+  const signOut = () => auth.signOut();
 
   return (
     <AuthContext.Provider
-      value={{ isAuthenticated, setIsAuthenticated, error, setError, logout }}
+      value={{ isAuthenticated, user , signIn, signOut}}
     >
       {children}
     </AuthContext.Provider>

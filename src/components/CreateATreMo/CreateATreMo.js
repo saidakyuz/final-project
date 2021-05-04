@@ -7,8 +7,8 @@ import CreateIcon from "../../assets/create-black-icon.png"
 const CreateATreMo = () => {
     return (
         <div style={{display: 'flex', flexDirection: 'row-reverse'}}>
-        <Sidebar width={150} height={'100vh'}>
-          <div>
+        <Sidebar width={180} height={'100vh'}>
+          <div className="container">
           <button >
           <img src={CreateIcon} alt="Create Tremo" width="150px" />
             </button><button>
