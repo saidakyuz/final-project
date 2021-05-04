@@ -8,7 +8,7 @@ import Logo from "../../assets/white-jewel-pin.png";
 
 
 const Navigation = () => {
-  const { isAuthenticated, logout } = useContext(AuthContext);
+  const { isAuthenticated, signIn, signOut } = useContext(AuthContext);
   return (
     <Navbar className="navbar navbar-expand-lg navbar-dark bg-dark">
       <Link to="/">
@@ -29,21 +29,16 @@ const Navigation = () => {
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="ml-auto">
           {!isAuthenticated ? (
-            <Fragment>
-              <Nav.Link>
-                <NavLink to="/sign-up"><h6 className="white-text">Register</h6></NavLink>
-              </Nav.Link>
-              <Nav.Link>
-                <NavLink to="/sign-in"><h6 className="white-text">Login</h6></NavLink>
-              </Nav.Link>
-            </Fragment>
+            <Nav.Link>
+            <div onClick={signIn}>Sign in with Google</div>
+          </Nav.Link>
           ) : (
             <Fragment>
               <Nav.Link>
                 <NavLink to="/entrancegate"><h6 className="light-blue-text">EntranceGate</h6></NavLink>
               </Nav.Link>
               <Nav.Link>
-                <div onClick={logout}>Logout</div>
+                <div onClick={signOut}>Sign out</div>
               </Nav.Link>
             </Fragment>
           )}
