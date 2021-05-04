@@ -11,7 +11,6 @@ const FindTremoGeolocation = () => {
    top: 10
   };
  
-
   const [viewport, setViewport] = useState({
     latitude: 52.52,
     longitude: 13.405,
