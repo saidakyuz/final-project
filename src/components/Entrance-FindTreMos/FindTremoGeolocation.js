@@ -1,12 +1,29 @@
   
 import React, { useState, useRef, useEffect,useCallback } from 'react';
-import ReactMapGL, { GeolocateControl ,Marker} from "react-map-gl";
+import ReactMapGL, { GeolocateControl ,Marker, Source, Layer} from "react-map-gl";
 import Geocoder from "react-map-gl-geocoder";
 import { db} from '../../firebase/firebase'
 import "mapbox-gl/dist/mapbox-gl.css";
 import "react-map-gl-geocoder/dist/mapbox-gl-geocoder.css";
 
 const FindTremoGeolocation = () => {
+  const geojson = {
+    type: 'FeatureCollection',
+    features: [
+      {type: 'Feature', geometry: {type: 'Point', coordinates: [13.375165166, 52.509831294]}}
+    ]
+  };
+  
+  const layerStyle = {
+    id: 'point',
+    type: 'circle',
+    paint: {
+      'circle-radius': 10,
+      'circle-color': '#007cbf'
+    }
+  };
+  
+
   const geolocateControlStyle= {
    left: 10,
    top: 10
@@ -54,9 +71,12 @@ const FindTremoGeolocation = () => {
     height="90vh" 
     onViewportChange={setViewport}
     mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}>
-     {tremoPoints && tremoPoints.map(tp => ( <Marker latitude={tp.location.latitude} longitude={tp.location.longitude} offsetLeft={-20} offsetTop={-10}>
+     {/* {tremoPoints && tremoPoints.map(tp => ( <Marker latitude={tp.location.latitude} longitude={tp.location.longitude} offsetLeft={-20} offsetTop={-10}>
       ❓
-      </Marker>))}
+      </Marker>))} */}
+       <Source id="my-data" type="geojson" data={geojson}>
+        <Layer {...layerStyle} />
+      </Source>
       <GeolocateControl
       
         style={geolocateControlStyle}
