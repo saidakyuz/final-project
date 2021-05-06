@@ -14,11 +14,14 @@ const FindTremoGeolocation = () => {
     ]
   };
   
+  const circleRadius = 50;
+
   const layerStyle = {
     id: 'point',
     type: 'circle',
     paint: {
-      'circle-radius': 10,
+      'circle-radius': circleRadius,
+      'circle-opacity': 0.5,
       'circle-color': '#007cbf'
     }
   };
