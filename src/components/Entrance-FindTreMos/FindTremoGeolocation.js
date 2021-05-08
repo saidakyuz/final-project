@@ -10,12 +10,15 @@ import ReactMapGL, {
   Marker,
   Source,
   Layer,
+  Popup,
 } from "react-map-gl";
 import Geocoder from "react-map-gl-geocoder";
 import { AuthContext } from "../../context/AuthContext";
 import { db } from "../../firebase/firebase";
 import "mapbox-gl/dist/mapbox-gl.css";
 import "react-map-gl-geocoder/dist/mapbox-gl-geocoder.css";
+import reactDom from "react-dom";
+import InfoPopup from "./InfoPopup";
 
 const FindTremoGeolocation = () => {
   const { user } = useContext(AuthContext);
@@ -82,6 +85,8 @@ const FindTremoGeolocation = () => {
     return () => unsubscribe();
   }, []);
 
+  const [popupInfo, setPopupInfo] = useState(null);
+
   return (
     <div style={{ height: "100vh", width: "100vw" }}>
       <ReactMapGL
@@ -94,14 +99,33 @@ const FindTremoGeolocation = () => {
       >
         {tremoPoints &&
           tremoPoints.map((tp) => (
-            <Marker
-              latitude={tp.location.latitude}
-              longitude={tp.location.longitude}
-              offsetLeft={-20}
-              offsetTop={-10}
-            >
-              ❓
-            </Marker>
+            <React.Fragment>
+              <Marker
+                // key={tp.location.latitude} // it's temporary variable. When we have a key on db it will be changed
+                latitude={tp.location.latitude}
+                longitude={tp.location.longitude}
+                offsetLeft={-20}
+                offsetTop={-10}
+              >
+                ❓
+              </Marker>
+
+              <Popup
+                tipSize={5}
+                anchor="top"
+                latitude={tp.location.latitude}
+                longitude={tp.location.longitude}
+                offsetLeft={-15}
+                offsetTop={10}
+                closeOnClick={false}
+                onClose={setPopupInfo}
+              >
+                <React.Fragment>
+                  <div>Here we gooo!</div>
+                  <InfoPopup />
+                </React.Fragment>
+              </Popup>
+            </React.Fragment>
           ))}
         {/*  <Source id="my-data" type="geojson" data={geojson}>
         <Layer {...layerStyle} />
