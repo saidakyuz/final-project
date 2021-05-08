@@ -24,6 +24,7 @@
   border-radius: 0;
   border-color: rgba(64, 194, 133, 0.693);
   background-color: rgb(255, 255, 255);
+  /* background-image: "assets/pyramideArtwork.jpeg"; */
   transition: 2.8s ease;
 }
 

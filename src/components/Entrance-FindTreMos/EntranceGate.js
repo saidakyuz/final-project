@@ -2,35 +2,23 @@ import React from "react";
 import Sidebar from "./Sidebar";
 import FindTremoGeolocation from "./FindTremoGeolocation";
 import CreateBlackTremo from "../../assets/create-black-icon.png";
-import CreateSingleTremoRoute from "../../assets/treasure-map.jpeg";
-import CreateMultipleTremosRoute from "../../assets/multiple-map-journey-map.png";
-import TreasureChest from "../../assets/bright-treasure-chest-icon.jpeg";
 import { Link } from "react-router-dom";
+import pyramideArtwork from "../../assets/pyramideArtwork.jpeg";
+import user_like_staff_office_idea from "../../assets/user_like_staff_office_idea.png"
+import bulb_pie_chat_light_idea from "../../assets/bulb_pie_chat_light_idea.png"
 
 const EntranceGate = () => {
   return (
     <div style={{ display: "flex", flexDirection: "row-reverse" }}>
-      <Sidebar width={180} height={"100vh"}>
-        <div className="container">
+      <Sidebar width={300} height={"70vh"}>
+        <div className="container" id="findTremoSidebar">
           <Link to="/createatremo">
-            <img src={CreateBlackTremo} alt="Create Tremo" width="150px" />
+          <img src={user_like_staff_office_idea} alt="Create Tremo" width="75px" />
+            <span className="createATremo">Create a TreMo</span>
           </Link>
-          <Link to="/createsingletremoreo">
-            <img
-              src={CreateSingleTremoRoute}
-              alt="Create Single Tremo Route"
-              width="150px"
-            />
-          </Link>
-          <Link to="/">
-            <img
-              src={CreateMultipleTremosRoute}
-              alt="Create Multiple Tremos Route"
-              width="150px"
-            />
-          </Link>
-          <Link to="/">
-            <img src={TreasureChest} alt="TreasureChest" width="150px" />
+          <Link to="/treasurechest">
+            <img src={bulb_pie_chat_light_idea} alt="TreasureChest" width="75px" />
+            <span className="createATremo">Treasure Chest</span>
           </Link>
         </div>
       </Sidebar>

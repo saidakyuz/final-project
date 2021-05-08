@@ -33,7 +33,7 @@ const Sidebar = ({ width, height, children }) => {
         className="side-bar"
         style={{
           display: `${display ? "block" : "none"}`,
-          minHeight: height,
+          minHeight: height
         }}
       >
         <div className="content">{children}</div>

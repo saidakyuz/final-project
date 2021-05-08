@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect, useContext, useCallback } from 'react';
-import ReactMapGL, { GeolocateControl, Marker, Source, Layer } from 'react-map-gl';
+import ReactMapGL, { GeolocateControl, Marker, Source, Layer, Popup } from 'react-map-gl';
 import Geocoder from 'react-map-gl-geocoder';
 import { AuthContext } from '../../context/AuthContext';
 import { db } from '../../firebase/firebase';
@@ -37,6 +37,7 @@ const FindTremoGeolocation = () => {
     zoom: 13
   });
   const [tremoPoints, setTremoPoints] = useState();
+  //const [showPopup, togglePopup] = React.useState(false);
   const mapRef = useRef();
 
   const handleViewportChange = useCallback(newViewport => setViewport(newViewport), []);
@@ -84,6 +85,9 @@ const FindTremoGeolocation = () => {
               offsetTop={-10}
             >
               ❓
+              {/* <div className="marker" onClick={() => openPopup(index)}>
+              <span><b>{index + 1}</b></span>
+              </div> */}
             </Marker>
           ))}
         {/*  <Source id="my-data" type="geojson" data={geojson}>
@@ -96,6 +100,20 @@ const FindTremoGeolocation = () => {
           auto
           mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
         />
+
+          {/* {showPopup && 
+          showPopup.map(sp => (
+          <Popup
+          latitude={sp.location.latitude}
+          longitude={sp.location.longitude}
+          closeButton={true}
+          closeOnClick={false}
+          onClose={() => togglePopup(false)}
+          anchor="top" >
+          <div>You are here</div>
+          </Popup>
+          ))} */}
+
         <Geocoder
           mapRef={mapRef}
           style={geolocateControlStyle}
@@ -103,6 +121,7 @@ const FindTremoGeolocation = () => {
           mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
           position='bottom-left'
         />
+
       </ReactMapGL>
     </div>
   );
