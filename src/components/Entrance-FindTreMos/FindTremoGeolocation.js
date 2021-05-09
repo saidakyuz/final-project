@@ -84,8 +84,9 @@ const FindTremoGeolocation = () => {
 
     return () => unsubscribe();
   }, []);
-
-  const [popupInfo, setPopupInfo] = useState(null);
+  console.log(tremoPoints);
+  const [popupInfo, setPopupInfo] = useState(false);
+  const [showPopup, setShowPopup] = useState(false);
 
   return (
     <div style={{ height: "100vh", width: "100vw" }}>
@@ -106,25 +107,27 @@ const FindTremoGeolocation = () => {
                 longitude={tp.location.longitude}
                 offsetLeft={-20}
                 offsetTop={-10}
+                onClick={() => setShowPopup(true)}
               >
                 ❓
               </Marker>
-
-              <Popup
-                tipSize={5}
-                anchor="top"
-                latitude={tp.location.latitude}
-                longitude={tp.location.longitude}
-                offsetLeft={-15}
-                offsetTop={10}
-                closeOnClick={false}
-                onClose={setPopupInfo}
-              >
-                <React.Fragment>
-                  <div>Here we gooo!</div>
-                  <InfoPopup />
-                </React.Fragment>
-              </Popup>
+              {showPopup && (
+                <Popup
+                  tipSize={5}
+                  anchor="top"
+                  latitude={tp.location.latitude}
+                  longitude={tp.location.longitude}
+                  offsetLeft={-15}
+                  offsetTop={10}
+                  closeOnClick={false}
+                  onClose={() => setShowPopup(false)}
+                >
+                  <React.Fragment>
+                    <div>Here we gooo!</div>
+                    <InfoPopup tremos={tremoPoints} />
+                  </React.Fragment>
+                </Popup>
+              )}
             </React.Fragment>
           ))}
         {/*  <Source id="my-data" type="geojson" data={geojson}>
