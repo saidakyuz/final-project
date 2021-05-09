@@ -1,9 +1,13 @@
 import React from "react";
 
-const InfoPopup = () => {
+const InfoPopup = ({ tp }) => {
+  console.log(tp.picture);
   return (
-    <div>
-      {/* Here we need to photo of that tremo and some explanations about it. */}
+    <div classname="InfoPopup">
+      <div>
+        <p>{tp.hint}</p>
+      </div>
+      <img height={"100rem"} src={tp.picture} />
     </div>
   );
 };
