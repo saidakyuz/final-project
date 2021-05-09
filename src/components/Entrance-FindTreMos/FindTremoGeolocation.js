@@ -7,51 +7,60 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 import 'react-map-gl-geocoder/dist/mapbox-gl-geocoder.css';
 import TremoFoundDiamond from "../../assets/lilaSpizerDiamant.png";
 import NeonCircle from "../../assets/blue-pink-neon-circle.png";
-
+import "mapbox-gl/dist/mapbox-gl.css";
+import "react-map-gl-geocoder/dist/mapbox-gl-geocoder.css";
+import reactDom from "react-dom";
+import InfoPopup from "./InfoPopup";
 
 const FindTremoGeolocation = () => {
   const { user } = useContext(AuthContext);
   const geojson = {
-    type: 'FeatureCollection',
+    type: "FeatureCollection",
     features: [
-      { type: 'Feature', geometry: { type: 'Point', coordinates: [13.375165166, 52.509831294] } }
-    ]
+      {
+        type: "Feature",
+        geometry: { type: "Point", coordinates: [13.375165166, 52.509831294] },
+      },
+    ],
   };
 
   const circleRadius = 50;
 
   const layerStyle = {
-    id: 'point',
-    type: 'circle',
+    id: "point",
+    type: "circle",
     paint: {
-      'circle-radius': circleRadius,
-      'circle-opacity': 0.5,
-      'circle-color': '#007cbf'
-    }
+      "circle-radius": circleRadius,
+      "circle-opacity": 0.5,
+      "circle-color": "#007cbf",
+    },
   };
 
   const geolocateControlStyle = {
     left: 10,
-    top: 10
+    top: 10,
   };
   const [viewport, setViewport] = useState({
     latitude: 52.52,
     longitude: 13.405,
-    zoom: 13
+    zoom: 13,
   });
   const [tremoPoints, setTremoPoints] = useState();
   //const [showPopup, togglePopup] = React.useState(false);
   const mapRef = useRef();
 
-  const handleViewportChange = useCallback(newViewport => setViewport(newViewport), []);
+  const handleViewportChange = useCallback(
+    (newViewport) => setViewport(newViewport),
+    []
+  );
 
   const handleGeocoderViewportChange = useCallback(
-    newViewport => {
+    (newViewport) => {
       const geocoderDefaultOverrides = { transitionDuration: 1000 };
 
       return handleViewportChange({
         ...newViewport,
-        ...geocoderDefaultOverrides
+        ...geocoderDefaultOverrides,
       });
     },
     [handleViewportChange]
@@ -59,23 +68,25 @@ const FindTremoGeolocation = () => {
 
   useEffect(() => {
     const unsubscribe = db
-      .collection('tremos')
-      .where('createdBy', '!=', user.uid)
-      .onSnapshot(querySnapshot => {
-        const tremos = querySnapshot.docs.map(doc => doc.data());
+      .collection("tremos")
+      .where("createdBy", "!=", user.uid)
+      .onSnapshot((querySnapshot) => {
+        const tremos = querySnapshot.docs.map((doc) => doc.data());
         setTremoPoints(tremos);
       });
 
     return () => unsubscribe();
   }, []);
 
+  const [popupInfo, setPopupInfo] = useState(null);
+
   return (
-    <div style={{ height: '100vh', width: '100vw' }}>
+    <div style={{ height: "100vh", width: "100vw" }}>
       <ReactMapGL
         ref={mapRef}
         {...viewport}
-        width='100vw'
-        height='90vh'
+        width="100vw"
+        height="90vh"
         onViewportChange={setViewport}
         mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
       >
@@ -90,11 +101,23 @@ const FindTremoGeolocation = () => {
             <img src={TremoFoundDiamond} alt="Neon Corcle" width="50px" />
             <img src={NeonCircle} alt="Neon Circle" width="150px" />
               {/* ❓ */}
-              {/* <div className="marker" onClick={() => openPopup(index)}>
-              <span><b>{index + 1}</b></span>
-              </div> */}
-            </Marker>
-          ))}
+
+              <Popup
+                tipSize={5}
+                anchor="top"
+                latitude={tp.location.latitude}
+                longitude={tp.location.longitude}
+                offsetLeft={-15}
+                offsetTop={10}
+                closeOnClick={false}
+                onClose={setPopupInfo}
+              >
+                <React.Fragment>
+                  <div>Here we gooo!</div>
+                  <InfoPopup />
+                </React.Fragment>
+              </Popup>
+          ))
         {/*  <Source id="my-data" type="geojson" data={geojson}>
         <Layer {...layerStyle} />
       </Source> */}
@@ -106,27 +129,13 @@ const FindTremoGeolocation = () => {
           mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
         />
 
-          {/* {showPopup && 
-          showPopup.map(sp => (
-          <Popup
-          latitude={sp.location.latitude}
-          longitude={sp.location.longitude}
-          closeButton={true}
-          closeOnClick={false}
-          onClose={() => togglePopup(false)}
-          anchor="top" >
-          <div>You are here</div>
-          </Popup>
-          ))} */}
-
         <Geocoder
           mapRef={mapRef}
           style={geolocateControlStyle}
           onViewportChange={handleGeocoderViewportChange}
           mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
-          position='bottom-left'
+          position="bottom-left"
         />
-
       </ReactMapGL>
     </div>
   );

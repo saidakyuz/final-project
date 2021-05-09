@@ -1,7 +1,7 @@
-import firebase from 'firebase/app';
-import 'firebase/auth';
-import 'firebase/firestore';
-import 'firebase/storage';
+import firebase from "firebase/app";
+import "firebase/auth";
+import "firebase/firestore";
+import "firebase/storage";
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_FB_APIKEY,
@@ -9,7 +9,7 @@ const firebaseConfig = {
   projectId: process.env.REACT_APP_FB_PROJECTID,
   storageBucket: process.env.REACT_APP_FB_STORAGE,
   messagingSenderId: process.env.REACT_APP_FB_MESSAGINGID,
-  appId: process.env.REACT_APP_FB_APPID
+  appId: process.env.REACT_APP_FB_APPID,
 };
 
 firebase.initializeApp(firebaseConfig);

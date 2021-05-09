@@ -1,7 +1,7 @@
 import React from "react";
 import Sidebar from "./Sidebar";
 import FindTremoGeolocation from "./FindTremoGeolocation";
-import CreateBlackTremo from "../../assets/create-black-icon.png";
+//import CreateBlackTremo from "../../assets/create-black-icon.png";
 import { Link } from "react-router-dom";
 import pyramideArtwork from "../../assets/pyramideArtwork.jpeg";
 import user_like_staff_office_idea from "../../assets/user_like_staff_office_idea.png"
