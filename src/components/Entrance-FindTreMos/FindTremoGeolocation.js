@@ -5,6 +5,9 @@ import { AuthContext } from '../../context/AuthContext';
 import { db } from '../../firebase/firebase';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import 'react-map-gl-geocoder/dist/mapbox-gl-geocoder.css';
+import TremoFoundDiamond from "../../assets/lilaSpizerDiamant.png";
+import NeonCircle from "../../assets/blue-pink-neon-circle.png";
+
 
 const FindTremoGeolocation = () => {
   const { user } = useContext(AuthContext);
@@ -84,7 +87,9 @@ const FindTremoGeolocation = () => {
               offsetLeft={-20}
               offsetTop={-10}
             >
-              ❓
+            <img src={TremoFoundDiamond} alt="Neon Corcle" width="50px" />
+            <img src={NeonCircle} alt="Neon Circle" width="150px" />
+              {/* ❓ */}
               {/* <div className="marker" onClick={() => openPopup(index)}>
               <span><b>{index + 1}</b></span>
               </div> */}

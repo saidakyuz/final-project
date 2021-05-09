@@ -10,15 +10,15 @@ import bulb_pie_chat_light_idea from "../../assets/bulb_pie_chat_light_idea.png"
 const EntranceGate = () => {
   return (
     <div style={{ display: "flex", flexDirection: "row-reverse" }}>
-      <Sidebar width={300} height={"70vh"}>
-        <div className="container" id="findTremoSidebar">
+      <Sidebar width={300} height={"90vh"} style={{ backgroundImage: "url(assets/pyramideArtwork.jpeg)" }}>
+        <div className="container">
           <Link to="/createatremo">
-          <img src={user_like_staff_office_idea} alt="Create Tremo" width="75px" />
-            <span className="createATremo">Create a TreMo</span>
+          <img src={user_like_staff_office_idea} alt="Create Tremo" width="100px" />
+            {/* <span className="createATremo">Create a TreMo</span> */}
           </Link>
           <Link to="/treasurechest">
-            <img src={bulb_pie_chat_light_idea} alt="TreasureChest" width="75px" />
-            <span className="createATremo">Treasure Chest</span>
+            <img src={bulb_pie_chat_light_idea} alt="TreasureChest" width="100px" />
+            {/* <span className="createATremo">Treasure Chest</span> */}
           </Link>
         </div>
       </Sidebar>
