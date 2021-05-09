@@ -49,3 +49,11 @@
 .NavItem {
   color: black;
 }
+
+.InfoPopup {
+  z-index: 9999;
+}
+
+.Popup {
+  z-index: 9999;
+}

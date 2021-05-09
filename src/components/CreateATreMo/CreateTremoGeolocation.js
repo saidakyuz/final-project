@@ -112,6 +112,7 @@ const CreateTremoGeolocation = () => {
         {...viewport}
         width="100vw"
         height="90vh"
+        mapStyle="mapbox://styles/mapbox/dark-v9"
         onViewportChange={setViewport}
         //onClick={getCoordinates}
         onClick={getNewTremoLocation}

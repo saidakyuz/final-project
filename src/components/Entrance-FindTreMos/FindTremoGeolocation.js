@@ -84,7 +84,7 @@ const FindTremoGeolocation = () => {
 
     return () => unsubscribe();
   }, []);
-  console.log(tremoPoints);
+
   const [myKey, setMyKey] = useState();
   const [showPopup, setShowPopup] = useState(false);
 
@@ -95,6 +95,7 @@ const FindTremoGeolocation = () => {
         {...viewport}
         width="100vw"
         height="90vh"
+        mapStyle="mapbox://styles/mapbox/dark-v9"
         onViewportChange={setViewport}
         mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
       >
@@ -126,7 +127,7 @@ const FindTremoGeolocation = () => {
                 >
                   <React.Fragment>
                     <div>Here we gooo!</div>
-                    <InfoPopup tremos={tremoPoints} />
+                    <InfoPopup tp={tp} />
                   </React.Fragment>
                 </Popup>
               )}

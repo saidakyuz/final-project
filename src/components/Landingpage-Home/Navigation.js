@@ -6,7 +6,6 @@ import Logo from "../../assets/white-jewel-pin.png";
 //import { FaThumbsDown, FaThumbsUp } from 'react-icons/fa';
 //import { FaBeer } from 'react-icons/fa';
 
-
 const Navigation = () => {
   const { isAuthenticated, signIn, signOut } = useContext(AuthContext);
   return (
@@ -21,21 +20,24 @@ const Navigation = () => {
           />
         </Navbar.Brand>
       </Link>
-      <Link  to="/">
-      <h4 className="text font-weight-bold">
+      <Link to="/">
+        <h4 className="text font-weight-bold">
           <strong>T[R]eMo</strong>
-      </h4></Link>
+        </h4>
+      </Link>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="ml-auto">
           {!isAuthenticated ? (
             <Nav.Link>
-            <div onClick={signIn}>Sign in with Google</div>
-          </Nav.Link>
+              <div onClick={signIn}>Sign in with Google</div>
+            </Nav.Link>
           ) : (
             <Fragment>
               <Nav.Link>
-                <NavLink to="/entrancegate"><h6 className="light-blue-text">EntranceGate</h6></NavLink>
+                <NavLink to="/entrancegate">
+                  <h6 className="light-blue-text">Let's Go!</h6>
+                </NavLink>
               </Nav.Link>
               <Nav.Link>
                 <div onClick={signOut}>Sign out</div>
