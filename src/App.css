@@ -22,8 +22,9 @@
   flex-direction: column;
   border-right: 1px solid;
   border-radius: 0;
-  border-color: rgba(64, 194, 133, 0.693);
-  background-color: rgb(255, 255, 255);
+  border-color: rgba(80, 232, 243, 0.693);
+  background-color: rgb(199, 21, 21);
+  background-image: url(assets/AyLrC9.jpeg);
   transition: 2.8s ease;
 }
 

@@ -19,6 +19,7 @@ import "mapbox-gl/dist/mapbox-gl.css";
 import "react-map-gl-geocoder/dist/mapbox-gl-geocoder.css";
 import reactDom from "react-dom";
 import InfoPopup from "./InfoPopup";
+import NeonCircle from "../../assets/blue-pink-neon-circle.png";
 
 const FindTremoGeolocation = () => {
   const { user } = useContext(AuthContext);
@@ -112,7 +113,7 @@ const FindTremoGeolocation = () => {
                   setMyKey(tp.location.latitude + tp.location.longitude)
                 }
               >
-                ❓
+                <img src={NeonCircle} alt="Neon Circle" width="150px" />
               </Marker>
               {myKey == tp.location.latitude + tp.location.longitude && (
                 <Popup

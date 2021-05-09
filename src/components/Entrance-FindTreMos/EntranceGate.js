@@ -6,31 +6,33 @@ import CreateSingleTremoRoute from "../../assets/treasure-map.jpeg";
 import CreateMultipleTremosRoute from "../../assets/multiple-map-journey-map.png";
 import TreasureChest from "../../assets/bright-treasure-chest-icon.jpeg";
 import { Link } from "react-router-dom";
+import user_like_staff_office_idea from "../../assets/user_like_staff_office_idea.png";
+import bulb_pie_chat_light_idea from "../../assets/bulb_pie_chat_light_idea.png";
 
 const EntranceGate = () => {
   return (
     <div style={{ display: "flex", flexDirection: "row-reverse" }}>
-      <Sidebar width={180} height={"100vh"}>
+      <Sidebar
+        width={300}
+        height={"90vh"}
+        style={{ backgroundImage: "url(assets/pyramideArtwork.jpeg)" }}
+      >
         <div className="container">
           <Link to="/createatremo">
-            <img src={CreateBlackTremo} alt="Create Tremo" width="150px" />
-          </Link>
-          <Link to="/createsingletremoreo">
             <img
-              src={CreateSingleTremoRoute}
-              alt="Create Single Tremo Route"
-              width="150px"
+              src={user_like_staff_office_idea}
+              alt="Create Tremo"
+              width="100px"
             />
+            {/* <span className="createATremo">Create a TreMo</span> */}
           </Link>
-          <Link to="/">
+          <Link to="/treasurechest">
             <img
-              src={CreateMultipleTremosRoute}
-              alt="Create Multiple Tremos Route"
-              width="150px"
+              src={bulb_pie_chat_light_idea}
+              alt="TreasureChest"
+              width="100px"
             />
-          </Link>
-          <Link to="/">
-            <img src={TreasureChest} alt="TreasureChest" width="150px" />
+            {/* <span className="createATremo">Treasure Chest</span> */}
           </Link>
         </div>
       </Sidebar>

@@ -10,6 +10,7 @@ import { AuthContext } from "../../context/AuthContext";
 import { db, storage, GeoPoint } from "../../firebase/firebase";
 import "mapbox-gl/dist/mapbox-gl.css";
 import "react-map-gl-geocoder/dist/mapbox-gl-geocoder.css";
+import TremoFoundDiamond from "../../assets/lilaSpitzerDiamant.png";
 
 const CreateTremoGeolocation = () => {
   const { user } = useContext(AuthContext);
@@ -126,7 +127,7 @@ const CreateTremoGeolocation = () => {
               offsetLeft={-20}
               offsetTop={-10}
             >
-              💎
+              <img src={TremoFoundDiamond} alt="Neon Corcle" width="50px" />
             </Marker>
           ))}
         {newTremoCoordinates && (
