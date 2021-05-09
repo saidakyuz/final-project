@@ -85,7 +85,7 @@ const FindTremoGeolocation = () => {
     return () => unsubscribe();
   }, []);
   console.log(tremoPoints);
-  const [popupInfo, setPopupInfo] = useState(false);
+  const [myKey, setMyKey] = useState();
   const [showPopup, setShowPopup] = useState(false);
 
   return (
@@ -102,16 +102,18 @@ const FindTremoGeolocation = () => {
           tremoPoints.map((tp) => (
             <React.Fragment>
               <Marker
-                // key={tp.location.latitude} // it's temporary variable. When we have a key on db it will be changed
+                key={tp.location.latitude + tp.location.longitude} // it's temporary variable. When we have a key on db it will be changed
                 latitude={tp.location.latitude}
                 longitude={tp.location.longitude}
                 offsetLeft={-20}
                 offsetTop={-10}
-                onClick={() => setShowPopup(true)}
+                onClick={() =>
+                  setMyKey(tp.location.latitude + tp.location.longitude)
+                }
               >
                 ❓
               </Marker>
-              {showPopup && (
+              {myKey == tp.location.latitude + tp.location.longitude && (
                 <Popup
                   tipSize={5}
                   anchor="top"
@@ -120,7 +122,7 @@ const FindTremoGeolocation = () => {
                   offsetLeft={-15}
                   offsetTop={10}
                   closeOnClick={false}
-                  onClose={() => setShowPopup(false)}
+                  onClose={() => setMyKey(null)}
                 >
                   <React.Fragment>
                     <div>Here we gooo!</div>
