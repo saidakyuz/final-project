@@ -89,7 +89,7 @@ const FindTremoGeolocation = () => {
         height="90vh"
         onViewportChange={setViewport}
         mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
-      >
+        >
         {tremoPoints &&
           tremoPoints.map(tp => (
             <Marker
@@ -101,7 +101,7 @@ const FindTremoGeolocation = () => {
             <img src={TremoFoundDiamond} alt="Neon Corcle" width="50px" />
             <img src={NeonCircle} alt="Neon Circle" width="150px" />
               {/* ❓ */}
-
+            
               <Popup
                 tipSize={5}
                 anchor="top"
@@ -120,7 +120,10 @@ const FindTremoGeolocation = () => {
           ))
         {/*  <Source id="my-data" type="geojson" data={geojson}>
         <Layer {...layerStyle} />
-      </Source> */}
+        </Source> */}
+
+
+
         <GeolocateControl
           style={geolocateControlStyle}
           positionOptions={{ enableHighAccuracy: true }}
@@ -134,9 +137,10 @@ const FindTremoGeolocation = () => {
           style={geolocateControlStyle}
           onViewportChange={handleGeocoderViewportChange}
           mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
-          position="bottom-left"
-        />
-      </ReactMapGL>
+          position="bottom-left" />
+
+        </Marker>
+        </ReactMapGL>
     </div>
   );
 };
