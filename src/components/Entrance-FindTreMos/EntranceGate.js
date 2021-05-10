@@ -1,14 +1,14 @@
-import React from "react";
+import React, {useState} from "react";
 import Sidebar from "./Sidebar";
 import FindTremoGeolocation from "./FindTremoGeolocation";
+import SidebarTremoCard from './SidebarTremoCard'
 import { Link } from "react-router-dom";
-//import SidebarFindATremoHunt from "./SidebarFindATremoHunt";
 import user_like_staff_office_idea from "../../assets/user_like_staff_office_idea.png";
 import diamound_shine_expensive_stone from "../../assets/diamound_shine_expensive_stone.png";
 import bulb_pie_chat_light_idea from "../../assets/bulb_pie_chat_light_idea.png";
-import BeepleIntoTheEtherTokenArt from "../../assets/BeepleIntoTheEtherTokenArt.jpeg";
 
 const EntranceGate = () => {
+  const [activeHunt, setActiveHunt] = useState()
   return (
     <div style={{ display: "flex", flexDirection: "row-reverse" }}>
       <Sidebar
@@ -16,7 +16,7 @@ const EntranceGate = () => {
         height={"90vh"}
       >
         <div id="EntranceGateSidebarContainer">
-          <div id="EntranceGateSidebarItemIcons">
+          <div className="EntranceGateSidebarItemIcons">
           <Link to="/createatremo">
             <button className="SidebarIconsButtons">
             <img
@@ -24,19 +24,17 @@ const EntranceGate = () => {
               alt="Create Tremo"
               width="65px"
             /></button>
-            {/* <span className="createATremo">Create a TreMo</span> */}
           </Link>
           <Link to="/treasurechest">
             <button className="SidebarIconsButtons">
             <img
               src={diamound_shine_expensive_stone}
-              alt="TreasureChest"
+              alt="Treasure Chest"
               width="65px"
             /></button>
-            {/* <span className="createATremo">Treasure Chest</span> */}
           </Link>
           <Link to="/help">
-            <button className="SidebarIconsButtons">
+            <button className="SidebarIconsButtonsRight">
             <img 
             src={bulb_pie_chat_light_idea}
             alt="help"
@@ -45,11 +43,11 @@ const EntranceGate = () => {
           </Link>
           </div>
           <div id="EntranceGateSidebarItemFindATremoHunt">
-            {/* <SidebarFindATremoHunt /> */}
+          <SidebarTremoCard tremo={activeHunt}/>
           </div>
         </div>
-      </Sidebar>
-      <FindTremoGeolocation />
+      </Sidebar >
+      <FindTremoGeolocation setActiveHunt={setActiveHunt}/>
     </div>
   );
 };

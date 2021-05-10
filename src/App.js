@@ -5,9 +5,10 @@ import SignUp from "./components/Landingpage-Home/SignUp";
 import SignIn from "./components/Landingpage-Home/SignIn";
 import NotFound from "./components/Landingpage-Home/NotFound";
 //import Footer from "./components/Home-Landingpage/Footer";
-import EntranceGate from './components/Entrance-FindTreMos/EntranceGate';
 import ProtectedRoute from './components/Landingpage-Home/ProtectedRoute';
+import EntranceGate from './components/Entrance-FindTreMos/EntranceGate';
 import CreateATreMo from './components/CreateATreMo/CreateATreMo'
+import TreasureChest from "./components/TreasureChest/TreasureChest";
 import "./App.css"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "bootswatch/dist/cyborg/bootstrap.min.css";
@@ -22,6 +23,7 @@ const App = () => {
         <Route exact path="/sign-in" component={SignIn} />
         <ProtectedRoute exact path='/entrancegate' component={EntranceGate} />
         <ProtectedRoute exact path='/createatremo' component={CreateATreMo} />
+        <ProtectedRoute exact path='/treasurechest' component={TreasureChest} />
         <Route path="*" component={NotFound} />
       </Switch>
       {/* <Footer /> */}
