@@ -1,5 +1,5 @@
-import { useState, useEffect, Fragment } from "react";
-import "../../App.css";
+import { useState, useEffect, Fragment } from 'react';
+import '../../App.css';
 
 const Sidebar = ({ width, height, children }) => {
   const [xPosition, setX] = useState(width);
@@ -23,20 +23,20 @@ const Sidebar = ({ width, height, children }) => {
     <Fragment>
       <button
         onClick={() => toggleMenu()}
-        className="toggle-menu"
+        className='toggle-menu'
         style={{
-          transformOrigin: "left",
-          transform: `translatex(-${xPosition}px)`,
+          transformOrigin: 'left',
+          transform: `translatex(-${xPosition}px)`
         }}
       ></button>
       <div
-        className="side-bar"
+        className='side-bar'
         style={{
-          display: `${display ? "block" : "none"}`,
-          minHeight: height,
+          display: `${display ? 'block' : 'none'}`,
+          minHeight: height
         }}
       >
-        <div className="content">{children}</div>
+        <div className='content'>{children}</div>
       </div>
     </Fragment>
   );
