@@ -1,42 +1,53 @@
-import React from "react";
+import React, {useState} from "react";
 import Sidebar from "./Sidebar";
 import FindTremoGeolocation from "./FindTremoGeolocation";
-import CreateBlackTremo from "../../assets/create-black-icon.png";
-import CreateSingleTremoRoute from "../../assets/treasure-map.jpeg";
-import CreateMultipleTremosRoute from "../../assets/multiple-map-journey-map.png";
-import TreasureChest from "../../assets/bright-treasure-chest-icon.jpeg";
+import SidebarTremoCard from './SidebarTremoCard'
 import { Link } from "react-router-dom";
 import user_like_staff_office_idea from "../../assets/user_like_staff_office_idea.png";
+import diamound_shine_expensive_stone from "../../assets/diamound_shine_expensive_stone.png";
 import bulb_pie_chat_light_idea from "../../assets/bulb_pie_chat_light_idea.png";
 
 const EntranceGate = () => {
+  const [activeHunt, setActiveHunt] = useState()
   return (
     <div style={{ display: "flex", flexDirection: "row-reverse" }}>
       <Sidebar
-        width={300}
+        width={555}
         height={"90vh"}
-        style={{ backgroundImage: "url(assets/pyramideArtwork.jpeg)" }}
       >
-        <div className="container">
+        <div id="EntranceGateSidebarContainer">
+          <div className="EntranceGateSidebarItemIcons">
           <Link to="/createatremo">
+            <button className="SidebarIconsButtons">
             <img
               src={user_like_staff_office_idea}
               alt="Create Tremo"
-              width="100px"
-            />
-            {/* <span className="createATremo">Create a TreMo</span> */}
+              width="65px"
+            /></button>
           </Link>
           <Link to="/treasurechest">
+            <button className="SidebarIconsButtons">
             <img
-              src={bulb_pie_chat_light_idea}
-              alt="TreasureChest"
-              width="100px"
-            />
-            {/* <span className="createATremo">Treasure Chest</span> */}
+              src={diamound_shine_expensive_stone}
+              alt="Treasure Chest"
+              width="65px"
+            /></button>
           </Link>
+          <Link to="/help">
+            <button className="SidebarIconsButtonsRight">
+            <img 
+            src={bulb_pie_chat_light_idea}
+            alt="help"
+            width="65px" 
+            /></button>
+          </Link>
+          </div>
+          <div id="EntranceGateSidebarItemFindATremoHunt">
+          <SidebarTremoCard tremo={activeHunt}/>
+          </div>
         </div>
-      </Sidebar>
-      <FindTremoGeolocation />
+      </Sidebar >
+      <FindTremoGeolocation setActiveHunt={setActiveHunt}/>
     </div>
   );
 };

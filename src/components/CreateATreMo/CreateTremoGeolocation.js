@@ -127,7 +127,7 @@ const CreateTremoGeolocation = () => {
               offsetLeft={-20}
               offsetTop={-10}
             >
-              <img src={TremoFoundDiamond} alt="Neon Corcle" width="50px" />
+              <img src={TremoFoundDiamond} alt="Neon Circle" width="50px" />
             </Marker>
           ))}
         {newTremoCoordinates && (
