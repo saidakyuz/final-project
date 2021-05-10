@@ -148,7 +148,7 @@
   background: rgba(16,18,27,0.4);
   border: 1px solid rgba( 255, 255, 255, 0.18 );
   border-radius: 10px;
-  backdrop-filter: blur(1px);
+  backdrop-filter: blur(0.5px);
 }
 
 /* .text-dark {
@@ -170,6 +170,13 @@
 
 #TreasureChestSidebarContainer {
   background-image: url(/src/assets/beeple-artwork-digital-art-3d-illustration-hd-wallpaper-preview.jpeg);
+  background-size: 550px 90vh;
+  width: 550px;
+  height: 90vh;
+}
+
+#HelpInspirationsSidebarContainer {
+  background-image: url(/src/assets/diamond-neon-light-arena.jpeg);
   background-size: 550px 90vh;
   width: 550px;
   height: 90vh;

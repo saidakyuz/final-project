@@ -3,8 +3,8 @@ import Sidebar from "../Entrance-FindTreMos/Sidebar";
 import CreateTremoGeolocation from "./CreateTremoGeolocation";
 import { Link } from "react-router-dom";
 import Eye_illuminati_pyramid_triangle from "../../assets/Eye_illuminati_pyramid_triangle.png";
-import diamound_shine_expensive_stone from "../../assets/diamound_shine_expensive_stone.png";
-import bulb_pie_chat_light_idea from "../../assets/bulb_pie_chat_light_idea.png";
+import user_like_staff_office_idea from "../../assets/user_like_staff_office_idea.png";
+import marketing_Business_idea_pertinent_Gear from "../../assets/marketing_Business_idea_pertinent_Gear.png";
 
 
 const CreateATreMo = () => {
@@ -19,7 +19,7 @@ const CreateATreMo = () => {
           <Link to="/entrancegate">
             <button className="SidebarIconsButtons">
             <img
-              src={Eye_illuminati_pyramid_triangle}
+              src={user_like_staff_office_idea}
               alt="Entrance Gate"
               width="65px"
             /></button>
@@ -27,16 +27,16 @@ const CreateATreMo = () => {
           <Link to="/treasurechest">
             <button className="SidebarIconsButtons">
             <img
-              src={diamound_shine_expensive_stone}
+              src={Eye_illuminati_pyramid_triangle}
               alt="Treasure Chest"
               width="65px"
             /></button>
           </Link>
-          <Link to="/help">
+          <Link to="/helpinspirations">
             <button className="SidebarIconsButtonsRight">
             <img 
-            src={bulb_pie_chat_light_idea}
-            alt="help"
+            src={marketing_Business_idea_pertinent_Gear}
+            alt="HelpInspirations"
             width="65px" 
             /></button>
           </Link>
