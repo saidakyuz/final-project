@@ -15,7 +15,7 @@
     background-color: transparent;
 } */
 .side-bar {
-  height: 100% !important;
+  height: 90% !important;
   z-index: 10000;
   position: absolute;
   display: flex;
@@ -23,9 +23,10 @@
   border-right: 1px solid;
   border-radius: 0;
   border-color: rgba(80, 232, 243, 0.693);
-  background-color: rgb(199, 21, 21);
-  background-image: url(assets/AyLrC9.jpeg);
+  background-color: rgb(33, 30, 30);
+  /* background-image: url(assets/Beeple-Into-The-Ether-Token-Art.jpeg); */
   transition: 2.8s ease;
+  /* width: 550px; */
 }
 
 .side-bar .content .container {
@@ -41,8 +42,8 @@
   position: absolute;
   outline: none;
   z-index: 1;
-  background-color: rgba(64, 194, 133, 0.693);
-  border-color: rgba(64, 194, 133, 0.693);
+  background-color: rgba(80, 232, 243, 0.693);
+  border-color: rgba(138, 53, 206, 0.693);
   border-right: 0;
   /* z-index: 999999; */
 }
@@ -57,4 +58,30 @@
 
 .Popup {
   z-index: 9999;
+}
+
+#EntranceGateSidebarContainer {
+  /* display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap; */
+  /* justify-content: flex-start; */
+  background-image: url(/src/assets/BeepleIntoTheEtherTokenArt.jpeg);
+  width: 550px;
+  height: 90vh;
+
+}
+
+.SidebarIconsButtons {
+  border-radius: 50%;
+  margin: 20px;
+  background-color: Transparent;
+}
+
+#EntranceGateSidebarItemIcons {
+  /* align-self: flex-start; */
+}
+
+#EntranceGateSidebarItemFindATremoHunt {
+  /* align-items: flex-end; */
+  
 }
