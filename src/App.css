@@ -49,6 +49,13 @@
   /* z-index: 999999; */
 }
 
+/* .toggle-menu:hover {
+  color:rgb(242, 180, 249);
+  background: rgb(181, 248, 254);
+  box-shadow: 0 0 10px rgba(80, 232, 243, 0.693), 0 0 40px rgba(80, 232, 243, 0.693), 0 0 80px rgba(80, 232, 243, 0.693);
+  transition-delay: 1s;
+} */
+
 .NavItem {
   color: black;
 }
@@ -68,25 +75,30 @@
   /* justify-content: flex-start; */
   background-image: url(/src/assets/BeepleIntoTheEtherTokenArt.jpeg);
   background-size: 550px 90vh;
-  border-left-color:rgb(242, 180, 249);
-  border-left-width: 3px;
+  /* border-left-color:rgb(230, 77, 166, 0.2);
+  border-left-width: 0.5px;
+  border-left-style: solid; */
   width: 550px;
   height: 90vh;
-}
-.EntranceGateSidebarItemIcons {
-  
 }
 
 .SidebarIconsButtons {
   border-radius: 50%;
   margin: 20px;
   background-color: rgba(230, 77, 166, 0.2);
-  box-shadow: 0 15px 35px rgba(244, 159, 208, 0.2);
-  border: 1px solid rgba(80, 232, 243, 0.693);
+  box-shadow: 0 0 30px rgba(245, 172, 215, 0.913);
+  border: 1.5px solid rgba(80, 232, 243, 0.693);
   z-index: 1;
   transition: 0.5s;
   position: relative;
   /* backdrop-filter: blur(15px); */
+}
+
+.SidebarIconsButtons:hover {
+  color:rgb(242, 180, 249);
+  background: rgb(181, 248, 254);
+  box-shadow: 0 0 10px rgba(80, 232, 243, 0.693), 0 0 40px rgba(80, 232, 243, 0.693), 0 0 80px rgba(80, 232, 243, 0.693);
+  transition-delay: 1s;
 }
 
 .SidebarIconsButtons::before {
@@ -100,7 +112,6 @@
   background: rgba(193, 230, 242), transparent;
   border-radius: 10%;
   transition: 0.5s;
-  /* transform: skewX(45deg) translateX(0); */
 }
 
 .SidebarIconsButtons:hover::before {
@@ -114,28 +125,45 @@
 .SidebarIconsButtonsRight {
   border-radius: 50%;
   margin: 20px;
+  margin-left: 200px;
   background-color: rgba(230, 77, 166, 0.2);
-  box-shadow: 0 15px 35px rgba(244, 148, 204, 0.2);
-  border: 1px solid rgba(80, 232, 243, 0.693);
+  box-shadow: 0 0 30px rgba(245, 172, 215, 0.913);
+  border: 1.5px solid rgba(80, 232, 243, 0.693);
   z-index: 1;
   transition: 0.5s;
-  margin-left: 200px;
+  position: relative;
 }
 
-#EntranceGateSidebarItemIcons {
-  /* align-self: flex-start; */
+.SidebarIconsButtonsRight:hover {
+  color:rgb(242, 180, 249);
+  background: rgb(181, 248, 254);
+  box-shadow: 0 0 10px rgba(80, 232, 243, 0.693), 0 0 40px rgba(80, 232, 243, 0.693), 0 0 80px rgba(80, 232, 243, 0.693);
+  transition-delay: 1s;
 }
 
 #EntranceGateSidebarItemFindATremoHunt {
-  /* align-items: flex-end; */
-  
+  margin: 0 auto;
+  width: 26rem;
+  height: 20rem;
+  background: rgba(16,18,27,0.4);
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+  border-radius: 10px;
+  backdrop-filter: blur(1px);
 }
+
+/* .text-dark {
+  margin: 0 auto;
+  width: 16rem;
+  height: 20rem;
+  background: rgba(16,18,27,0.4);
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+  border-radius: 10px;
+  backdrop-filter: blur(2px);
+} */
 
 #CreateTremoSidebarContainer {
   background-image: url(/src/assets/beeple-illestrater-12-15-20.jpeg);
   background-size: 550px 90vh;
-  border-left-color:rgb(242, 180, 249);
-  border-left-width: 3px;
   width: 550px;
   height: 90vh;
 }
@@ -143,8 +171,6 @@
 #TreasureChestSidebarContainer {
   background-image: url(/src/assets/beeple-artwork-digital-art-3d-illustration-hd-wallpaper-preview.jpeg);
   background-size: 550px 90vh;
-  border-left-color:rgb(242, 180, 249);
-  border-left-width: 3px;
   width: 550px;
   height: 90vh;
 }
