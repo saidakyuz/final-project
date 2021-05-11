@@ -9,6 +9,7 @@ import Eye_illuminati_pyramid_triangle from "../../assets/Eye_illuminati_pyramid
 
 const HelpInspirations = () => {
     return (
+      <div id="BackgroundInspirations">
         <div style={{ display: "flex", flexDirection: "row-reverse" }}>
           <Sidebar
             width={555}
@@ -45,8 +46,8 @@ const HelpInspirations = () => {
               </div>
             </div>
           </Sidebar>
-{/*           <img src={earthwithlightsnetworks} alt="backgroundEarth" width= "100%" height= "90%" />
- */}        </div>
+          </div>
+        </div>
       );
     };
     

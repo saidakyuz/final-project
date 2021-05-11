@@ -181,3 +181,21 @@
   width: 550px;
   height: 90vh;
 }
+
+#BackgroundChest {
+  background-image: url(/src//assets/global_network-net.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  height: 90vh;
+  width: 100%;
+}
+
+#BackgroundInspirations {
+  background-image: url(/src//assets/wwkllopopo.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  height: 90vh;
+  width: 100%;
+}
