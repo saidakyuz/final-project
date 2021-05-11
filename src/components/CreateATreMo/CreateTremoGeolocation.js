@@ -106,6 +106,16 @@ const CreateTremoGeolocation = () => {
     [handleViewportChange]
   );
 
+  /* const formStyle = () = {
+    margin: "0 auto";
+    width: "6rem";
+    height: "10rem";
+    background: "rgba(16,18,27,0.4)";
+    border: "1px solid rgba( 255, 255, 255, 0.18 )";
+    border-radius: "10px";
+    backdrop-filter: "blur(0.5px)";
+  } */
+
   return (
     <div style={{ height: "100vh", width: "100vw" }}>
       <ReactMapGL
