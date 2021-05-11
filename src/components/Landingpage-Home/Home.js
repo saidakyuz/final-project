@@ -10,7 +10,6 @@ const Home = () => {
           overlay="rgba(0,0,0,.4)"
           className="backgroundvideo"
         ></YoutubeBackground>
-        ,
       </div>
       <Footer />
     </div>
