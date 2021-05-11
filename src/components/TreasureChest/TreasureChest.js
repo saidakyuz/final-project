@@ -1,5 +1,11 @@
-import React from "react";
+import React, {useEffect, useState, useContext} from "react";
+import { AuthContext } from "../../context/AuthContext";
+import {db} from '../../firebase/firebase'
 import Sidebar from "../Entrance-FindTreMos/Sidebar";
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Card from 'react-bootstrap/Card';
 import { Link } from "react-router-dom";
 import user_like_staff_office_idea from "../../assets/user_like_staff_office_idea.png";
 import diamound_shine_expensive_stone from "../../assets/diamound_shine_expensive_stone.png";
@@ -8,8 +14,22 @@ import earthwithlightsnetworks from "../../assets/wwkllopopo.jpeg";
 
 
 const TreasureChest = () => {
+    const { user } = useContext(AuthContext);
+    const [tremosInChest, setTremosInChest]= useState()
+    useEffect(()=>{
+      const chestUnsubscribe = db
+    .collection('chest')
+    .where('user_id', '==', user.uid)
+    .onSnapshot(querySnapshot => {
+      const tremos = querySnapshot.docs.map(doc => doc.data());
+      setTremosInChest(tremos)
+    });
+
+    return ()=>chestUnsubscribe()
+    })
     return (
-        <div style={{ display: "flex", flexDirection: "row-reverse" }}>
+       <div>
+ <div style={{ display: "flex", flexDirection: "row-reverse" }}>
           <Sidebar
             width={555}
             height={"90vh"}
@@ -46,8 +66,36 @@ const TreasureChest = () => {
               </div>
             </div>
           </Sidebar>
-          <img src={earthwithlightsnetworks} alt="backgroundEarth" width= "100%" height= "90%" />
         </div>
+        <Container>
+            <Row>
+            {
+              tremosInChest && tremosInChest.map(tp => (
+                
+                <Col md={3}>
+                <Card style={{ width: '80%' }}>
+                  {tp ? (
+                    <Card.Body>
+                      <Card.Img variant='top' src={tp.picture} />
+                      <Card.Title className='text-dark'>
+                        {tp.name}
+                      </Card.Title>
+                      <Card.Text>{tp.hint}</Card.Text>
+                    </Card.Body>
+                  ) : (
+                    <Card.Body>
+                      <Card.Title className='text-dark'>Add a tremo to the hunt!</Card.Title>
+                    </Card.Body>
+                  )}
+                </Card>
+                </Col>
+
+                ))
+          }
+          </Row> 
+        </Container>
+         
+       </div>
       );
     };
     

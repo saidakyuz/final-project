@@ -1,9 +1,21 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import Row from 'react-bootstrap/Row';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
+import { AuthContext } from "../../context/AuthContext";
+import {db} from '../../firebase/firebase'
 
-const SidebarTremoCard = ({ tremo }) => {
+ 
+const SidebarTremoCard = ({ tremo, setActiveHunt }) => {
+  const { user } = useContext(AuthContext);
+  const saveToChest = ()=>{
+    const chest = db.collection('chest').doc();
+    chest.set(
+      {...tremo, user_id: user.uid}
+    )
+    setActiveHunt()
+  }
+
   return (
     <Row className='justify-content-center'>
       <Card style={{ width: '80%' }}>
@@ -15,7 +27,7 @@ const SidebarTremoCard = ({ tremo }) => {
             </Card.Title>
             <Card.Text>{tremo.hint}</Card.Text>
             {tremo.distanceFromTremo <= 0.01 && (
-              <Button variant='dark' block>
+              <Button variant='dark' block onClick={saveToChest}>
                 Save to chest
               </Button>
             )}

@@ -14,6 +14,8 @@ mapboxgl.workerClass = require('worker-loader!mapbox-gl/dist/mapbox-gl-csp-worke
 
 const FindTremoGeolocation = ({ setActiveHunt }) => {
   const { user, userLocation, setUserLocation } = useContext(AuthContext);
+  const [tremosInChest, setTremosInChest] = useState()
+  const [tremosByOtherUsers, setTremosByOtherUsers] = useState()
   const [showPopup, setShowPopup] = useState(false);
   const [selectedTremo, setSelectedTremo] = useState(false);
   const [viewport, setViewport] = useState({
@@ -71,16 +73,35 @@ const FindTremoGeolocation = ({ setActiveHunt }) => {
   };
 
   useEffect(() => {
+
+    const chestUnsubscribe = db
+    .collection('chest')
+    .where('user_id', '==', user.uid)
+    .onSnapshot(querySnapshot => {
+      const tremos = querySnapshot.docs.map(doc => doc.data());
+      setTremosInChest(tremos)
+    });
+
     const unsubscribe = db
       .collection('tremos')
       .where('createdBy', '!=', user.uid)
       .onSnapshot(querySnapshot => {
         const tremos = querySnapshot.docs.map(doc => doc.data());
-        setTremoPoints(tremos);
+        setTremosByOtherUsers(tremos)
       });
 
-    return () => unsubscribe();
+    return () => {
+      chestUnsubscribe()
+      unsubscribe()
+    };
   }, []);
+
+  useEffect(()=>{
+    if(tremosByOtherUsers && tremosInChest){
+      const tremosToFind = tremosByOtherUsers.filter(tp => !tremosInChest.find(tic => tic.name ===tp.name) && tp )
+      setTremoPoints(tremosToFind)
+    }
+  },[tremosInChest, tremosByOtherUsers])
 
   return (
     <div style={{ height: '100vh', width: '100vw' }}>

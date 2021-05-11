@@ -60,7 +60,7 @@ const EntranceGate = () => {
           </Link>
           </div>
           <div id='EntranceGateSidebarItemFindATremoHunt'>
-            <SidebarTremoCard tremo={activeHunt} />
+            <SidebarTremoCard tremo={activeHunt}  setActiveHunt={setActiveHunt} />
           </div>
         </div>
       </Sidebar>
