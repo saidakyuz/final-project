@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import user_like_staff_office_idea from "../../assets/user_like_staff_office_idea.png";
 import diamound_shine_expensive_stone from "../../assets/diamound_shine_expensive_stone.png";
 import marketing_Business_idea_pertinent_Gear from "../../assets/marketing_Business_idea_pertinent_Gear.png";
+import earthwithlightsnetworks from "../../assets/wwkllopopo.jpeg";
 
 
 const TreasureChest = () => {
@@ -45,6 +46,7 @@ const TreasureChest = () => {
               </div>
             </div>
           </Sidebar>
+          <img src={earthwithlightsnetworks} alt="backgroundEarth" width= "100%" height= "90%" />
         </div>
       );
     };

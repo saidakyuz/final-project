@@ -45,7 +45,8 @@ const HelpInspirations = () => {
               </div>
             </div>
           </Sidebar>
-        </div>
+{/*           <img src={earthwithlightsnetworks} alt="backgroundEarth" width= "100%" height= "90%" />
+ */}        </div>
       );
     };
     
