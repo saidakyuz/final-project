@@ -49,6 +49,13 @@
   /* z-index: 999999; */
 }
 
+/* .toggle-menu:hover {
+  color:rgb(242, 180, 249);
+  background: rgb(181, 248, 254);
+  box-shadow: 0 0 10px rgba(80, 232, 243, 0.693), 0 0 40px rgba(80, 232, 243, 0.693), 0 0 80px rgba(80, 232, 243, 0.693);
+  transition-delay: 1s;
+} */
+
 .NavItem {
   color: black;
 }
@@ -81,8 +88,8 @@
   border-radius: 50%;
   margin: 20px;
   background-color: rgba(230, 77, 166, 0.2);
-  box-shadow: 0 15px 35px rgba(244, 159, 208, 0.2);
-  border: 1px solid rgba(80, 232, 243, 0.693);
+  box-shadow: 0 0 30px rgba(245, 172, 215, 0.913);
+  border: 1.5px solid rgba(80, 232, 243, 0.693);
   z-index: 1;
   transition: 0.5s;
   position: relative;
@@ -98,16 +105,21 @@
 .SidebarIconsButtonsRight {
   border-radius: 50%;
   margin: 20px;
+  margin-left: 200px;
   background-color: rgba(230, 77, 166, 0.2);
-  box-shadow: 0 15px 35px rgba(244, 148, 204, 0.2);
-  border: 1px solid rgba(80, 232, 243, 0.693);
+  box-shadow: 0 0 30px rgba(245, 172, 215, 0.913);
+  border: 1.5px solid rgba(80, 232, 243, 0.693);
   z-index: 1;
   transition: 0.5s;
-  margin-left: 200px;
+  position: relative;
 }
 
-#EntranceGateSidebarItemIcons {
-  /* align-self: flex-start; */
+.SidebarIconsButtonsRight:hover {
+  color: rgb(242, 180, 249);
+  background: rgb(181, 248, 254);
+  box-shadow: 0 0 10px rgba(80, 232, 243, 0.693), 0 0 40px rgba(80, 232, 243, 0.693),
+    0 0 80px rgba(80, 232, 243, 0.693);
+  transition-delay: 1s;
 }
 
 #EntranceGateSidebarItemFindATremoHunt {

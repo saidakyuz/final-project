@@ -9,6 +9,7 @@ import ProtectedRoute from './components/Landingpage-Home/ProtectedRoute';
 import EntranceGate from './components/Entrance-FindTreMos/EntranceGate';
 import CreateATreMo from './components/CreateATreMo/CreateATreMo'
 import TreasureChest from "./components/TreasureChest/TreasureChest";
+import HelpInspirations from "./components/HelpInspirations/HelpInspirations";
 import "./App.css"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "bootswatch/dist/cyborg/bootstrap.min.css";
@@ -24,6 +25,7 @@ const App = () => {
         <ProtectedRoute exact path='/entrancegate' component={EntranceGate} />
         <ProtectedRoute exact path='/createatremo' component={CreateATreMo} />
         <ProtectedRoute exact path='/treasurechest' component={TreasureChest} />
+        <ProtectedRoute exact path='/helpinspirations' component={HelpInspirations} />
         <Route path="*" component={NotFound} />
       </Switch>
       {/* <Footer /> */}
