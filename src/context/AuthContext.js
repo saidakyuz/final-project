@@ -1,10 +1,11 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState, useEffect } from 'react';
 import { auth, googleProvider } from '../firebase/firebase';
 
 const AuthContext = createContext();
 
 const AuthState = ({ children }) => {
   const [user, setUser] = useState();
+  const [userLocation, setUserLocation] = useState();
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   useEffect(() => {
@@ -18,14 +19,14 @@ const AuthState = ({ children }) => {
       }
     });
     return () => unsubscribe();
-  },[])
+  }, []);
 
   const signIn = () => auth.signInWithPopup(googleProvider);
   const signOut = () => auth.signOut();
 
   return (
     <AuthContext.Provider
-      value={{ isAuthenticated, user , signIn, signOut}}
+      value={{ isAuthenticated, user, signIn, signOut, userLocation, setUserLocation }}
     >
       {children}
     </AuthContext.Provider>
