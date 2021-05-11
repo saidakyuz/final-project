@@ -5,6 +5,7 @@ const AuthContext = createContext();
 
 const AuthState = ({ children }) => {
   const [user, setUser] = useState();
+  const [userLocation, setUserLocation] = useState();
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   useEffect(() => {
@@ -24,7 +25,9 @@ const AuthState = ({ children }) => {
   const signOut = () => auth.signOut();
 
   return (
-    <AuthContext.Provider value={{ isAuthenticated, user, signIn, signOut }}>
+    <AuthContext.Provider
+      value={{ isAuthenticated, user, signIn, signOut, userLocation, setUserLocation }}
+    >
       {children}
     </AuthContext.Provider>
   );

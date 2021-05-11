@@ -68,15 +68,15 @@
   /* justify-content: flex-start; */
   background-image: url(/src/assets/BeepleIntoTheEtherTokenArt.jpeg);
   background-size: 550px 90vh;
-  border-left-color:rgb(242, 180, 249);
+  border-left-color: rgb(242, 180, 249);
   border-left-width: 3px;
-  width: 550px;
+  width: 300px;
   height: 90vh;
 }
 .EntranceGateSidebarItemIcons {
-  
 }
 
+.SidebarIconsButtons,
 .SidebarIconsButtons {
   border-radius: 50%;
   margin: 20px;
@@ -89,26 +89,10 @@
   /* backdrop-filter: blur(15px); */
 }
 
-.SidebarIconsButtons::before {
-  content: '';
-  position:absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: -5px;
-  width: 30px;
-  height: 10px;
-  background: rgba(193, 230, 242), transparent;
-  border-radius: 10%;
-  transition: 0.5s;
-  /* transform: skewX(45deg) translateX(0); */
-}
-
-.SidebarIconsButtons:hover::before {
-  transform: skewX(45deg) translateX(200%);
-  bottom: 0;
-  height: 50%;
-  width: 80%;
-  border-radius: 30px;
+.SidebarIconsButtons:hover,
+.SidebarIconsButtons:hover {
+  background-color: rgba(252, 7, 141, 0.2);
+  border: 1px solid rgba(203, 250, 92, 0.945);
 }
 
 .SidebarIconsButtonsRight {
@@ -128,22 +112,21 @@
 
 #EntranceGateSidebarItemFindATremoHunt {
   /* align-items: flex-end; */
-  
 }
 
 #CreateTremoSidebarContainer {
   background-image: url(/src/assets/beeple-illestrater-12-15-20.jpeg);
   background-size: 550px 90vh;
-  border-left-color:rgb(242, 180, 249);
+  border-left-color: rgb(242, 180, 249);
   border-left-width: 3px;
-  width: 550px;
+  width: 300px;
   height: 90vh;
 }
 
 #TreasureChestSidebarContainer {
   background-image: url(/src/assets/beeple-artwork-digital-art-3d-illustration-hd-wallpaper-preview.jpeg);
   background-size: 550px 90vh;
-  border-left-color:rgb(242, 180, 249);
+  border-left-color: rgb(242, 180, 249);
   border-left-width: 3px;
   width: 550px;
   height: 90vh;

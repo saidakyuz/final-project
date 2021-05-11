@@ -4,14 +4,16 @@ import Geocoder from 'react-map-gl-geocoder';
 import * as turf from '@turf/turf';
 import { AuthContext } from '../../context/AuthContext';
 import { db } from '../../firebase/firebase';
+import { distance } from '../../utils/utils';
+import NeonCircle from '../../assets/blue-pink-neon-circle.png';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import 'react-map-gl-geocoder/dist/mapbox-gl-geocoder.css';
-import InfoPopup from './InfoPopup';
-import NeonCircle from '../../assets/blue-pink-neon-circle.png';
+import mapboxgl from 'mapbox-gl'; // This is a dependency of react-map-gl even if you didn't explicitly install it
+// eslint-disable-next-line import/no-webpack-loader-syntax
+mapboxgl.workerClass = require('worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker').default;
 
 const FindTremoGeolocation = ({ setActiveHunt }) => {
-  const { user } = useContext(AuthContext);
-  const [userLocation, setUserLocation] = useState();
+  const { user, userLocation, setUserLocation } = useContext(AuthContext);
   const [showPopup, setShowPopup] = useState(false);
   const [selectedTremo, setSelectedTremo] = useState(false);
   const [viewport, setViewport] = useState({
@@ -22,9 +24,10 @@ const FindTremoGeolocation = ({ setActiveHunt }) => {
   const [tremoPoints, setTremoPoints] = useState();
 
   const geolocateControlStyle = {
-    left: 10,
+    left: 20,
     top: 10
   };
+
   const mapRef = useRef();
 
   const handleViewportChange = useCallback(newViewport => setViewport(newViewport), []);
@@ -42,32 +45,6 @@ const FindTremoGeolocation = ({ setActiveHunt }) => {
   );
 
   const handleFindTremoClick = tp => {
-    const distance = (lat1, lon1, lat2, lon2, unit) => {
-      if (lat1 == lat2 && lon1 == lon2) {
-        return 0;
-      } else {
-        const radlat1 = (Math.PI * lat1) / 180;
-        const radlat2 = (Math.PI * lat2) / 180;
-        const theta = lon1 - lon2;
-        const radtheta = (Math.PI * theta) / 180;
-        let dist =
-          Math.sin(radlat1) * Math.sin(radlat2) +
-          Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
-        if (dist > 1) {
-          dist = 1;
-        }
-        dist = Math.acos(dist);
-        dist = (dist * 180) / Math.PI;
-        dist = dist * 60 * 1.1515;
-        if (unit == 'K') {
-          dist = dist * 1.609344;
-        }
-        if (unit == 'N') {
-          dist = dist * 0.8684;
-        }
-        return dist;
-      }
-    };
     const distanceFromTremo = distance(
       tp.location._lat,
       tp.location._long,
@@ -118,16 +95,43 @@ const FindTremoGeolocation = ({ setActiveHunt }) => {
       >
         {tremoPoints &&
           tremoPoints.map(tp => (
+            <Layer
+              onMouseEnter={() => handleFindTremoClick(tp)}
+              key={`${tp.name}-${tp.location._lat}-${tp.location._long}`}
+              id={tp.name}
+              type='fill'
+              source={{
+                type: 'geojson',
+                data: turf.circle(
+                  turf.point([tp.location._long, tp.location._lat]),
+                  tp.radius || 50,
+                  {
+                    steps: 80,
+                    units: 'meters'
+                  }
+                )
+              }}
+              paint={{
+                'fill-color': 'purple',
+                'fill-opacity': 0.6
+              }}
+            />
+          ))}
+        {tremoPoints &&
+          tremoPoints.map(tp => (
             <React.Fragment>
               <Marker
                 key={tp.location.latitude + tp.location.longitude}
                 latitude={tp.location.latitude}
                 longitude={tp.location.longitude}
-                offsetLeft={-20}
-                offsetTop={-10}
                 onClick={() => handleFindTremoClick(tp)}
               >
-                <img src={NeonCircle} alt='Neon Circle' width='150px' />
+                <img
+                  src={NeonCircle}
+                  alt='Neon Circle'
+                  width='150px'
+                  style={{ transform: 'translate(-50%, -50%)' }}
+                />
               </Marker>
             </React.Fragment>
           ))}
