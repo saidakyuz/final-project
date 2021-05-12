@@ -61,8 +61,17 @@ const TreasureChest = () => {
                 /></button>
               </Link>
               </div>
-              <div id="TreasureChestSidebarItem">
-              </div>
+               <div id="TreasureChestSidebarItem">
+                 <div className="Blocktext">
+                 <p><h5>T[R]easure Chest</h5></p>
+                   <br />
+                   <p><h6># collection of your found tremos</h6></p>
+                   <br />
+                   <p><h6># relive your treasures</h6></p>
+                   <br />
+                   <p><h6># liven up your special moments</h6></p>
+                 </div>
+               </div>
             </div>
           </Sidebar>
         </div>

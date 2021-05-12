@@ -42,8 +42,16 @@ const CreateATreMo = () => {
           </Link>
           </div>
           <div id="CreateTremoSidebarItem">
+            <div className="Blocktext">
+                   <p><h5>Create Tremo[s]</h5></p>
+                   <br />
+                   <p><h6># let the world shine full of diamonds</h6></p>
+                   <br />
+                   <p><h6># let your creativity flow</h6></p>
+                   <br />
+                   <p><h6># share special details</h6></p>
+            </div>
           </div>
-          <div id='CreateTremoSidebarItem'></div>
         </div>
       </Sidebar>
       <CreateTremoGeolocation />
